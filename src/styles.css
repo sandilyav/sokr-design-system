@@ -1,0 +1,36 @@
+:root {
+  /* TODO: move real tokens from SOKR here later */
+  --sokr-color-primary: #2563eb;
+  --sokr-color-primary-foreground: #ffffff;
+  --sokr-radius-md: 0.5rem;
+}
+
+.sokr-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  padding: 0.5rem 0.9rem;
+  font-weight: 500;
+  border-radius: var(--sokr-radius-md);
+  border-width: 1px;
+  border-style: solid;
+  cursor: pointer;
+  transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease,
+    box-shadow 150ms ease, transform 80ms ease;
+}
+
+.sokr-btn-primary {
+  background-color: var(--sokr-color-primary);
+  color: var(--sokr-color-primary-foreground);
+  border-color: transparent;
+}
+
+.sokr-btn-primary:hover {
+  filter: brightness(0.95);
+}
+
+.sokr-btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
