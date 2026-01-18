@@ -1,6 +1,6 @@
 import React from "react";
 
-export type ButtonVariant = "primary";
+export type ButtonVariant = "primary" | "secondary" | "outline" | "ghost";
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -14,13 +14,24 @@ const BASE_CLASSES =
   "focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 " +
   "h-10 px-4 py-2";
 
+const VARIANT_CLASSES: Record<ButtonVariant, string> = {
+  primary:
+    "border border-transparent bg-primary text-primary-foreground hover:bg-primary/90",
+  secondary:
+    "bg-secondary text-secondary-foreground hover:bg-secondary/80 border border-transparent",
+  outline:
+    "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+  ghost: "hover:bg-accent hover:text-accent-foreground border border-transparent",
+};
+
 export const Button: React.FC<ButtonProps> = ({
   variant = "primary",
   className,
   ...props
 }) => {
-  // For now we treat all variants the same and rely on caller's className
-  const mergedClassName = [BASE_CLASSES, className].filter(Boolean).join(" ");
+  const variantClasses = VARIANT_CLASSES[variant] ?? VARIANT_CLASSES.primary;
+  const mergedClassName =
+    [BASE_CLASSES, variantClasses, className].filter(Boolean).join(" ");
 
   return <button className={mergedClassName} {...props} />;
 };
