@@ -4,6 +4,12 @@ export interface CardProps {
   title?: string;
   children: React.ReactNode;
   className?: string;
+  /**
+   * Visual variant of the card.
+   * - default: plain white card
+   * - selected: subtle highlighted background + stronger border
+   */
+  variant?: "default" | "selected";
 }
 
 /**
@@ -13,11 +19,17 @@ export interface CardProps {
  * - White background
  * - Subtle border and shadow
  */
-export const Card: React.FC<CardProps> = ({ title, children, className }) => {
+export const Card: React.FC<CardProps> = ({ title, children, className, variant = "default" }) => {
+  const variantClasses =
+    variant === "selected"
+      ? "bg-indigo-50 border-indigo-200"
+      : "bg-white border-gray-100";
+
   return (
     <section
       className={[
-        "bg-white border border-gray-100 rounded-xl shadow-sm",
+        "border rounded-xl shadow-sm",
+        variantClasses,
         "p-4 md:p-5",
         className,
       ]
