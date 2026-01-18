@@ -19,7 +19,7 @@ export interface AppShellProps {
  */
 export const AppShell: React.FC<AppShellProps> = ({ sidebar, topBar, children }) => {
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col md:flex-row">
+    <div className="min-h-screen bg-gray-50 flex flex-row">
       {sidebar}
       <div className="flex flex-col flex-1 min-w-0">
         {topBar}
