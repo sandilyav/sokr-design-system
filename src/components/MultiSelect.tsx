@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Button } from "./Button";
 
 export interface MultiSelectOption {
@@ -30,6 +30,7 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
 }) => {
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState("");
+  const rootRef = useRef<HTMLDivElement | null>(null);
 
   const selectedSet = useMemo(() => new Set(value), [value]);
 
@@ -48,6 +49,8 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
     } else {
       onChange([...value, val]);
     }
+    // Close after a selection to behave like a normal dropdown.
+    setOpen(false);
   };
 
   const selectedLabels = useMemo(() => {
@@ -57,8 +60,20 @@ export const MultiSelect: React.FC<MultiSelectProps> = ({
       .filter((l): l is React.ReactNode => l !== undefined);
   }, [options, value]);
 
+  useEffect(() => {
+    if (!open) return;
+    const handleClick = (event: MouseEvent) => {
+      const root = rootRef.current;
+      if (!root) return;
+      if (event.target instanceof Node && root.contains(event.target)) return;
+      setOpen(false);
+    };
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, [open]);
+
   return (
-    <div className={"relative w-full " + (className ?? "")}>
+    <div ref={rootRef} className={"relative w-full " + (className ?? "")}>
       <Button
         variant="outline"
         type="button"
