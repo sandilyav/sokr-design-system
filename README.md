@@ -28,19 +28,56 @@ import { Button } from "@sokr/design-system";
 
 ```ts
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary" | "outline" | "ghost";
+  variant?:
+    | "primary" // alias for "default" (main action)
+    | "secondary"
+    | "outline"
+    | "ghost"
+    | "default"
+    | "destructive"
+    | "link"
+    | "sokr-primary"
+    | "sokr-secondary"
+    | "sokr-cta"
+    | "sokr-filter-selected"
+    | "sokr-ai";
 }
 ```
 
-**Usage**
+**Core usage**
 
 ```tsx
+// "default" and "primary" map to the same main action style
+<Button>Save</Button>
+<Button variant="default">Save</Button>
 <Button variant="primary">Save</Button>
+
+<Button variant="secondary">Secondary</Button>
 <Button variant="outline">Cancel</Button>
-<Button variant="ghost">Secondary action</Button>
+<Button variant="ghost">Low emphasis</Button>
+<Button variant="link">Inline link-style action</Button>
 ```
 
-Use `primary` for main actions, `outline` for secondary actions, and `ghost` for low‑emphasis actions.
+Use `default`/`primary` for main actions, `secondary` or `outline` for secondary actions, `ghost` for low‑emphasis actions, and `link` for inline textual actions.
+
+**SOKR-specific variants**
+
+These mirror the SOKR style‑guide at `/style-guide/buttons` in the main app.
+
+```tsx
+// Marketing / hero CTAs
+<Button variant="sokr-primary">Primary CTA</Button>
+<Button variant="sokr-secondary">Secondary CTA</Button>
+<Button variant="sokr-cta">Call to action</Button>
+
+// Filter / toggle selected state
+<Button variant="sokr-filter-selected">Selected filter</Button>
+
+// AI button (animated style supplied by the host app CSS)
+<Button variant="sokr-ai">SOKR AI</Button>
+```
+
+`sokr-ai` expects the host app to include the `sokr-ai-button` + optional `is-working` utility classes from the main SOKR stylesheet.
 
 ---
 
