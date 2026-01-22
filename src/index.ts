@@ -7,3 +7,4 @@ export * from "./components/SidebarNav";
 export * from "./components/TopBar";
 export * from "./components/EnvironmentBadge";
 export * from "./components/Card";
+export * from "./components/PersonChip";
