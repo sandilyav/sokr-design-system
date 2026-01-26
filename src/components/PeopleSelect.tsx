@@ -43,7 +43,7 @@ export const PeopleSelect: React.FC<PeopleSelectProps> = ({
           displayLabel={[person.name, person.email].filter(Boolean).join(" ")}
         >
           <div className="flex items-center gap-2">
-            <div className="h-6 w-6 rounded-full bg-gray-100 overflow-hidden flex-shrink-0">
+            <div className="h-6 w-6 rounded-full bg-gray-100 border border-gray-300 overflow-hidden flex-shrink-0">
               {person.avatarUrl ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
@@ -52,7 +52,7 @@ export const PeopleSelect: React.FC<PeopleSelectProps> = ({
                   className="h-full w-full object-cover"
                 />
               ) : (
-                <div className="flex h-full w-full items-center justify-center text-[10px] text-muted-foreground">
+                <div className="flex h-full w-full items-center justify-center text-[10px] text-sokr-dark">
                   {person.name?.charAt(0).toUpperCase() ?? "?"}
                 </div>
               )}

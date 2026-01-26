@@ -272,7 +272,7 @@ const MultiSelect: React.FC<MultiSelectProps> & {
                     return (
                       <span
                         key={itemValue}
-                        className="flex items-center gap-1 rounded-full bg-accent px-2 py-0.5 text-xs text-sokr-dark"
+                        className="flex items-center gap-1 rounded-full bg-slate-100 border border-slate-200 pl-1.5 pr-2 py-0.5 text-xs text-sokr-dark"
                       >
                         {option.label}
                         <X
@@ -288,7 +288,7 @@ const MultiSelect: React.FC<MultiSelectProps> & {
                 </div>
               )
             ) : (
-              <span className="text-muted-foreground">{placeholder}</span>
+              <span className="text-sokr-dark/60">{placeholder}</span>
             )}
             <ChevronsUpDown className="ml-auto h-4 w-4 shrink-0 opacity-50" />
           </Button>
