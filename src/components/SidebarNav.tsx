@@ -28,7 +28,7 @@ export const SidebarNavItem: React.FC<SidebarNavItemProps> = ({
         "flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium cursor-pointer",
         active
           ? "bg-slate-100 text-sokr-dark"
-          : "text-muted-foreground hover:bg-slate-50 hover:text-foreground"
+          : "text-sokr-dark/70 hover:bg-slate-50 hover:text-sokr-dark"
       )}
       onClick={onClick}
     >

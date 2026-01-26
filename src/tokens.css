@@ -74,7 +74,7 @@
   --task-time-block-foreground: 215 28% 17%; /* dark foreground for light backgrounds */
 
   --foreground: 215 28% 25%; /* Slate */
-  --card: 35 40% 94%; /* Beige */
+  --card: 0 0% 100%; /* White */
   --card-foreground: 215 28% 25%; /* Slate */
   --muted: 220 25% 90%; /* Periwinkle */
   --subtle: 220 25% 94%; /* Lighter Periwinkle */
