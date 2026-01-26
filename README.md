@@ -507,3 +507,58 @@ const [selectedIds, setSelectedIds] = useState<string[]>([]);
 ```
 
 With this setup, all SOKR‑related apps can share the same button styles, multi‑select interactions, and people chips/pickers, while keeping data fetching and business logic inside each app.
+
+---
+
+## Shared Theme Tokens & Global Styles
+
+The design system exposes the **same CSS variables (design tokens)** used by the main SOKR app so that apps like AiCRM can match the visual style exactly.
+
+### 1. How the tokens are provided
+
+The package-level stylesheet `@sokr/design-system/styles.css` imports two files:
+
+- `src/tokens.css` – defines the `:root { --primary, --card, --radius, ... }` variables copied from SOKR
+- `src/styles.css` – component-specific classes (e.g. `.sokr-btn`)
+
+When your app imports `@sokr/design-system/styles.css`, all the core SOKR theme tokens are attached to `:root` and are available to any components that rely on them.
+
+### 2. How to use the tokens in a consuming app (e.g. AiCRM)
+
+1. Install the design system (if not already):
+
+   ```bash
+   npm install @sokr/design-system
+   ```
+
+2. Import the shared stylesheet once in your app's global CSS file (for example, `src/styles/globals.css` or `src/app/globals.css`):
+
+   ```css
+   @import "@sokr/design-system/styles.css";
+   ```
+
+   This ensures that:
+   - The full SOKR token set is available on `:root` (e.g. `--primary`, `--primary-foreground`, `--card`, `--radius`, etc.).
+   - All design-system components (`Button`, `Card`, `MultiSelect`, `PeopleSelect`, etc.) render with the **same colors, borders, radii, and spacing** as in the SOKR app.
+
+3. Use components from the design system as usual:
+
+   ```tsx
+   import { Button, Card, MultiSelect, PeopleSelect } from "@sokr/design-system";
+
+   function Example() {
+     return (
+       <Card>
+         <Card title="Example">
+           <MultiSelect value={[]} onChange={() => {}} options={[]} />
+           <PeopleSelect value={[]} onChange={() => {}} options={[]} />
+           <Button variant="primary">Save</Button>
+         </Card>
+       </Card>
+     );
+   }
+   ```
+
+As long as your app imports `@sokr/design-system/styles.css`, you do **not** need to redefine any of the shared CSS variables. They are already set to the canonical values from SOKR.
+
+> Note: If a future app needs a different look, it can optionally override specific CSS variables *after* importing `@sokr/design-system/styles.css`, but for AiCRM and other SOKR-branded apps, you should keep the defaults to maintain visual parity.

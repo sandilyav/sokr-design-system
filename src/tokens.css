@@ -1,0 +1,128 @@
+:root {
+  /* Marketing Section Background Gradients */
+  --marketing-bg-gradient-1: linear-gradient(135deg, hsl(210, 60%, 98%) 0%, hsl(175, 60%, 95%) 100%);
+  --marketing-bg-gradient-2: linear-gradient(135deg, hsl(36, 100%, 96%) 0%, hsl(244, 89%, 97%) 100%);
+  --marketing-bg-gradient-3: linear-gradient(135deg, hsl(214, 25%, 97%) 0%, hsl(158, 80%, 97%) 100%);
+
+  /* New Semantic Color Palette (Light Theme) */
+  --primary: 214 25% 60%; /* Dusty Blue */
+  --primary-foreground: 48 33% 97%; /* Cream */
+
+  /* SOKR Calendar Day Background Colors */
+  --sokr-bg-weekday: #f8f9fa;
+  --sokr-bg-weekend: #e3e6ea;
+  --sokr-bg-today: #ffffff;
+
+  /* Google Calendar Event Colors */
+  --google-calendar-bg: #f8cf9d;
+  --google-calendar-color: #000000;
+  --google-calendar-border: #f57c00; /* Amber 700 - darker border */
+
+  /* SOKR Event Colors */
+  --sokr-event-bg: #94a3b8; /* Slate 200 - soft grey-blue */
+  --sokr-event-color: #1e293b; /* Slate 800 - dark slate */
+  --sokr-event-border: #94a3b8; /* Slate 400 - medium slate */
+  --sokr-event-font-size: 11px;
+  --sokr-event-line-height: 1.4;
+  --sokr-event-font-weight: 500;
+  --sokr-event-font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  /* SOKR Interface Colors */
+  --sokr-grey: 75 85 99; /* HSL for gray-600 - SOKR brand grey for text and interface elements */
+
+  /* Pillar / Brand Colors */
+  --highlight: 58, 141, 255; /* #3A8DFF */
+  --accent-orange: 255, 153, 0; /* #FF9900 */
+  --accent-teal: 34, 230, 184; /* #22E6B8 */
+  --accent-indigo: 123, 97, 255; /* #7B61FF */
+  --accent-coral: 255, 94, 87; /* #FF5E57 */
+  --accent-pink: 255, 143, 203; /* #FF8FCB */
+  --pillar-focus: 244 89% 60%;   /* Indigo #4B3DF2 */
+  --pillar-alignment: 175 62% 45%; /* Teal #2BBBAD */
+  --pillar-commitment: 36 100% 67%; /* Orange #FFB357 */
+  --pillar-gradient-focus: linear-gradient(135deg, #7B61FF 0%, #3A8DFF 100%);
+  --pillar-gradient-alignment: linear-gradient(135deg, #22E6B8 0%, #2BBBAD 100%);
+  --pillar-gradient-commitment: linear-gradient(135deg, #FF9900 0%, #FF5E57 100%);
+
+  /* Testimonials Section Tint */
+  --testimonials-bg: 210 20% 98%; /* Very light gray-blue #F9FAFB */
+
+  /* CTA Button Hover */
+  --primary-hover: 214 25% 55%; /* Slightly darker Dusty Blue for hover */
+  --secondary: 158 80% 42%; /* emerald-500 - UNCHANGED */
+  --secondary-foreground: 0 0% 100%; /* white - UNCHANGED */
+
+  --success: 145 63% 49%; /* green-500 - UNCHANGED */
+  --warning: 38 92% 50%; /* amber-500 - UNCHANGED */
+  --danger: 0 84% 60%; /* red-500 - UNCHANGED */
+  --danger-foreground: 0 0% 100%; /* white - UNCHANGED */
+  --danger-subtle: 0 84% 96%; /* A very light red for backgrounds - UNCHANGED */
+  --danger-strong: 0 70% 30%; /* A dark red for text - UNCHANGED */
+  --info: 217 91% 60%; /* blue-500 - UNCHANGED */
+
+  /* Status Colors for Progress Bar */
+  --status-success: var(--success);
+  --status-warning: var(--warning);
+  --status-danger: var(--danger);
+
+  /* Task Type Colors */
+  --task-action: 217 91% 60%; /* blue-500 */
+  --task-action-foreground: 210 40% 98%; /* base foreground */
+  --task-priority: 0 84% 60%; /* red-500 */
+  --task-priority-foreground: 210 40% 98%;
+  --task-time-block: 38 92% 50%; /* amber-500 */
+  --task-time-block-foreground: 215 28% 17%; /* dark foreground for light backgrounds */
+
+  --foreground: 215 28% 25%; /* Slate */
+  --card: 35 40% 94%; /* Beige */
+  --card-foreground: 215 28% 25%; /* Slate */
+  --muted: 220 25% 90%; /* Periwinkle */
+  --subtle: 220 25% 94%; /* Lighter Periwinkle */
+  --popover: 220 25% 96%; /* Even lighter periwinkle for popovers */
+  --popover-foreground: 215 28% 25%; /* Slate */
+
+  /* HSL values for Tailwind config (ShadCN compatibility) */
+  --primary-hsl: var(--primary);
+  --pillar-focus-hsl: var(--pillar-focus);
+  --pillar-alignment-hsl: var(--pillar-alignment);
+  --pillar-commitment-hsl: var(--pillar-commitment);
+  --testimonials-bg-hsl: var(--testimonials-bg);
+  --primary-hover-hsl: var(--primary-hover);
+  --primary-foreground-hsl: var(--primary-foreground);
+  --secondary-hsl: var(--secondary);
+  --secondary-foreground-hsl: var(--secondary-foreground);
+  --success-hsl: var(--success);
+  --warning-hsl: var(--warning);
+  --danger-hsl: var(--danger);
+  --danger-foreground-hsl: var(--danger-foreground);
+  --danger-subtle-hsl: var(--danger-subtle);
+  --danger-strong-hsl: var(--danger-strong);
+  --info-hsl: var(--info);
+  --status-success-hsl: var(--status-success);
+  --status-warning-hsl: var(--status-warning);
+  --status-danger-hsl: var(--status-danger);
+  --background-hsl: 200 30% 98%; /* Light cool grey */
+  --foreground-hsl: var(--foreground);
+  --card-hsl: var(--card);
+  --card-foreground-hsl: var(--card-foreground);
+  --muted-hsl: var(--muted);
+  --subtle-hsl: var(--subtle);
+  --popover-hsl: var(--popover);
+  --popover-foreground-hsl: var(--popover-foreground);
+
+  /* HSL values for Task Types */
+  --task-action-hsl: var(--task-action);
+  --task-action-foreground-hsl: var(--task-action-foreground);
+  --task-priority-hsl: var(--task-priority);
+  --task-priority-foreground-hsl: var(--task-priority-foreground);
+  --task-time-block-hsl: var(--task-time-block);
+  --task-time-block-foreground-hsl: var(--task-time-block-foreground);
+
+  /* HSL values for SOKR Interface Colors */
+  --sokr-grey-hsl: var(--sokr-grey);
+
+  --reference-link: 210 80% 75%; /* Pastel Blue for links */
+  --reference-link-hsl: var(--reference-link);
+
+  --radius: 0.5rem;
+}
