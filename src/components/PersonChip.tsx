@@ -45,7 +45,7 @@ export const PersonChip: React.FC<PersonChipProps> = ({
   onClick,
 }) => {
   const chipClasses = [
-    "inline-flex items-center gap-1.5 rounded-full border pl-1.0 pr-2 py-0.5 text-xs font-semibold transition-colors",
+    "inline-flex items-center gap-1.5 rounded-full border pl-1.25 pr-2 py-0.5 text-xs font-semibold transition-colors",
     variantClasses[variant],
     className,
   ]
