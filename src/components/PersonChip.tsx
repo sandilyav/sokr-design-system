@@ -45,7 +45,9 @@ export const PersonChip: React.FC<PersonChipProps> = ({
   onClick,
 }) => {
   const chipClasses = [
-    "inline-flex items-center gap-1.5 rounded-full border px-2.0 pr-2 py-0.5 text-xs font-semibold transition-colors",
+    // Slightly tighter left padding and smaller gap so the avatar sits visually
+    // close to the pill border without leaving a crescent of empty space.
+    "inline-flex items-center gap-1.5 rounded-full border pl-1.5 pr-2 py-0.5 text-xs font-semibold transition-colors",
     variantClasses[variant],
     className,
   ]
@@ -57,7 +59,7 @@ export const PersonChip: React.FC<PersonChipProps> = ({
   const content = (
     <div className={chipClasses}>
       <div
-        className={`flex items-center justify-center rounded-full overflow-hidden bg-gray-100 ${avatarSize}`}
+        className={`flex items-center justify-center rounded-full overflow-hidden bg-gray-100 -ml-0.5 ${avatarSize}`}
       >
         {avatarUrl ? (
           // eslint-disable-next-line jsx-a11y/alt-text
