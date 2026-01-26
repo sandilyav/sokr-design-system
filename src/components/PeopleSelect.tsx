@@ -1,5 +1,5 @@
 import React from "react";
-import { MultiSelect, MultiSelectOption } from "./MultiSelect";
+import { MultiSelect } from "./MultiSelect";
 
 export interface PeopleSelectOption {
   id: string;
@@ -28,12 +28,20 @@ export const PeopleSelect: React.FC<PeopleSelectProps> = ({
   disabled = false,
   className,
 }) => {
-  const multiOptions: MultiSelectOption[] = React.useMemo(
-    () =>
-      options.map((person) => ({
-        value: person.id,
-        searchText: [person.name, person.email].filter(Boolean).join(" "),
-        label: (
+  return (
+    <MultiSelect
+      value={value}
+      onChange={onChange}
+      placeholder={placeholder}
+      loading={loading}
+      className={disabled ? `opacity-70 pointer-events-none ${className ?? ""}` : className}
+    >
+      {options.map((person) => (
+        <MultiSelect.Item
+          key={person.id}
+          value={person.id}
+          displayLabel={[person.name, person.email].filter(Boolean).join(" ")}
+        >
           <div className="flex items-center gap-2">
             <div className="h-6 w-6 rounded-full bg-gray-100 overflow-hidden flex-shrink-0">
               {person.avatarUrl ? (
@@ -56,19 +64,8 @@ export const PeopleSelect: React.FC<PeopleSelectProps> = ({
               )}
             </span>
           </div>
-        ),
-      })),
-    [options]
-  );
-
-  return (
-    <MultiSelect
-      value={value}
-      onChange={onChange}
-      options={multiOptions}
-      placeholder={placeholder}
-      loading={loading}
-      className={disabled ? `opacity-70 pointer-events-none ${className ?? ""}` : className}
-    />
+        </MultiSelect.Item>
+      ))}
+    </MultiSelect>
   );
 };
