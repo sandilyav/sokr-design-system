@@ -135,7 +135,7 @@ const CommandItem: React.FC<CommandItemBaseProps> = ({
   <button
     type="button"
     className={cn(
-      "flex w-full cursor-pointer items-center gap-2 rounded-sm px-2 py-1 text-left text-sm hover:bg-accent",
+      "flex w-full cursor-pointer items-center gap-2 rounded-sm px-2 py-1 text-left text-sm text-sokr-dark hover:bg-accent",
       disabled && "cursor-not-allowed opacity-60",
       className,
     )}
@@ -272,11 +272,11 @@ const MultiSelect: React.FC<MultiSelectProps> & {
                     return (
                       <span
                         key={itemValue}
-                        className="flex items-center gap-1 rounded-full bg-accent px-2 py-0.5 text-xs"
+                        className="flex items-center gap-1 rounded-full bg-accent px-2 py-0.5 text-xs text-sokr-dark"
                       >
                         {option.label}
                         <X
-                          className="h-3 w-3 cursor-pointer text-muted-foreground hover:text-foreground"
+                          className="h-3 w-3 cursor-pointer text-sokr-dark/70 hover:text-sokr-dark"
                           onClick={(e: React.MouseEvent<SVGSVGElement>) => {
                             e.stopPropagation();
                             handleUnselect(itemValue);
