@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "../../../AiCRM"
+		},
+		{
+			"path": "../../../SOKR Tasks"
 		}
 	],
 	"settings": {}
