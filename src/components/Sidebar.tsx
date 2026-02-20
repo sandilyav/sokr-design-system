@@ -13,7 +13,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ children, collapsed = false })
   return (
     <aside
       className={
-        "bg-white border-r border-gray-200 flex-shrink-0 flex flex-col min-h-screen " +
+        "bg-white border-r border-gray-200 flex-shrink-0 flex flex-col h-screen sticky top-0 " +
         (collapsed ? "w-16" : "w-64")
       }
     >
